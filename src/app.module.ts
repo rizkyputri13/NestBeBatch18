@@ -9,7 +9,7 @@ import { ServerModule } from './server/server.module';
       port: 5432,
       username: 'postgres',
       password: 'admin',
-      database: 'Batch#18',
+      database: 'HR',
       entities: ['src/entities/*{.ts,.js}'],
       synchronize: false,
     }),
