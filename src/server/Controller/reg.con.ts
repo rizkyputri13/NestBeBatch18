@@ -7,7 +7,6 @@ import {
   Param,
   Post,
   Put,
-  Res,
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
@@ -16,7 +15,7 @@ import { Regions } from '../../entities/Regions';
 import { Repository } from 'typeorm';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
 
-@Controller('api/regionnew/')
+@Controller('api/region/')
 @Injectable()
 export class RegControll {
   constructor(
@@ -72,7 +71,7 @@ export class RegControll {
           regionPhoto: file.file ? file.file[0].originalname : null,
           regionFile: file.foto ? file.foto[0].originalname : null,
         });
-        return 'Data is updated';
+        return await this.RegRepo.findOne({ where: { regionId: id } });
       }
     } catch (error) {
       return error.message;
@@ -82,7 +81,7 @@ export class RegControll {
   public async Deleted(@Param('id') id: number) {
     try {
       const region = await this.RegRepo.delete(id);
-      return 'delete' + region.affected + 'rows';
+      return 'Delete' + region.affected + 'rows';
     } catch (error) {
       return error.message;
     }
