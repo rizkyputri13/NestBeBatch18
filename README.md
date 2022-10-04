@@ -29,7 +29,7 @@
 ## Installation
 
 ```bash
-$ npm install
+$ nest new <project-name>
 ```
 
 ## Running the app
@@ -37,12 +37,15 @@ $ npm install
 ```bash
 # development
 $ npm run start
+$ yarn run start
 
 # watch mode
 $ npm run start:dev
+$ yarn run start:dev
 
 # production mode
 $ npm run start:prod
+$ yarn run start:prod
 ```
 
 ## Test
@@ -50,12 +53,15 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
+$ yarn run test
 
 # e2e tests
 $ npm run test:e2e
+$ yarn run test:e2e
 
 # test coverage
 $ npm run test:cov
+$ yarn run test:cov
 ```
 
 ## Support
@@ -71,3 +77,19 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Materi
+
+Nest (NestJS) adalah kerangka kerja untuk membangun aplikasi sisi server Node.js yang efisien dan skalabel. Ini menggunakan JavaScript progresif, dibangun dengan dan sepenuhnya mendukung TypeScript (namun masih memungkinkan pengembang untuk membuat kode dalam JavaScript murni) dan menggabungkan elemen OOP (Pemrograman Berorientasi Objek), FP (Pemrograman Fungsional), dan FRP (Pemrograman Reaktif Fungsional).
+
+Di bawah tenda, Nest menggunakan kerangka kerja Server HTTP yang kuat seperti Express (default) dan secara opsional dapat dikonfigurasi untuk menggunakan Fastify juga!
+
+Nest menyediakan tingkat abstraksi di atas kerangka kerja Node.js umum ini (Express/Fastify), tetapi juga memaparkan API mereka langsung ke developer. Ini memberi pengembang kebebasan untuk menggunakan banyak sekali modul pihak ketiga yang tersedia untuk platform yang mendasarinya.
+
+Dibagian src/main.ts disitu terdapat module NestFactory, module tersebut fungsinya hampir mirip dengan module Express di js.
+
+AppModule merupakan tempat untuk mengatur import data mana saja yang akan dijalankan, disini untuk convert suatu database ke TypeScript di NestJs menggunakan bantuan dari TypeOrm dengan module typeorm-model-generator, nanti kalian bisa lihat formatnya di pacakage.json.
+
+Dibagian server/controller/reg.con.ts disitu merupakan controller pembuatan api untuk bagian table region sebagai contoh, pertama disitu ada Controller yang berfungsi untuk membuat suatu api dasar, dan terdapat Injectable yang memungkinkan data di hasilnya itu di taruh di global dan dapat di akses secara umum, disitu terdapat Get,Post,Put,Delete, berfungsi untuk menentukan penggunakan code dibawahnya berfungsi untuk bagian apa, di TypeOrm untuk findAll menggunakan fungsi find(), untuk findOne masih sama, untuk Create data dia menggunakan fungsi Save, untuk Update masih sama tapi data hasil keluarnya tidak ada jadi harus di gandengan dengan findOne untuk melihat hasilnya, dan Delete disini tidak menggunakan Destroy tapi menggunakan fungsi delete, jadi didalam satu halaman ini terdapat controller dan reoute yang ada di expressJs.
+
+Dibagian server/server.module.ts disitu merupakan tempat untuk memasukkan model yang akan di gunakan serta untuk fungsi bagian upload file/image, disitu juga ada controller untuk diisi controller mana yang akan di gunakan saat program berjalan.
