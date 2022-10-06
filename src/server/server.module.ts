@@ -4,6 +4,7 @@ import { Regions } from '../entities/Regions';
 import { Countries } from '../entities/Countries';
 import { MulterModule } from '@nestjs/platform-express';
 import { RegControll } from './Controller/reg.con';
+import { CtrControll } from './Controller/ctr.con';
 import { ConfigMulter } from './Middleware/multer.conf';
 
 @Module({
@@ -12,6 +13,6 @@ import { ConfigMulter } from './Middleware/multer.conf';
     MulterModule.register(ConfigMulter.UploadFiles()),
   ],
   providers: [],
-  controllers: [RegControll],
+  controllers: [RegControll, CtrControll],
 })
 export class ServerModule {}

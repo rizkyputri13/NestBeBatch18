@@ -13,7 +13,7 @@ import { Locations } from './Locations';
 @Entity('countries', { schema: 'public' })
 export class Countries {
   @Column('character varying', { primary: true, name: 'country_id', length: 2 })
-  countryId: string;
+  countryId: number;
 
   @Column('character varying', {
     name: 'country_name',
@@ -21,6 +21,19 @@ export class Countries {
     length: 24,
   })
   countryName: string | null;
+  @Column('character varying', {
+    name: 'country_photo',
+    nullable: true,
+    length: 255,
+  })
+  countryPhoto: string | null;
+
+  @Column('character varying', {
+    name: 'country_file',
+    nullable: true,
+    length: 255,
+  })
+  countryFile: string | null;
 
   @ManyToOne(() => Regions, (regions) => regions.countries, {
     onDelete: 'CASCADE',
