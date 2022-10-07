@@ -49,9 +49,13 @@ export class LocControll {
     try {
       if (file) {
         const location = await this.LocRepo.save({
-          locationName: fields.locationName,
-          locationPhoto: file.file ? file.file[0].originalname : null,
-          locationFile: file.foto ? file.foto[0].originalname : null,
+          streetAddress: fields.streetAddress,
+          postalCode: fields.postalCode,
+          city: fields.city,
+          stateProvince: fields.stateProvince,
+          //countryId: fields.countryId,
+          // locationPhoto: file.file ? file.file[0].originalname : null,
+          // locationFile: file.foto ? file.foto[0].originalname : null,
         });
         return location;
       }
@@ -69,9 +73,13 @@ export class LocControll {
     try {
       if (file) {
         await this.LocRepo.update(id, {
-          locationName: fields.locationName,
-          locationPhoto: file.file ? file.file[0].originalname : null,
-          locationFile: file.foto ? file.foto[0].originalname : null,
+          streetAddress: fields.streetAddress,
+          postalCode: fields.postalCode,
+          city: fields.city,
+          stateProvince: fields.stateProvince,
+          //countryId: fields.countryId,
+          // locationPhoto: file.file ? file.file[0].originalname : null,
+          // locationFile: file.foto ? file.foto[0].originalname : null,
         });
         return await this.LocRepo.findOne({ where: { locationId: id } });
       }

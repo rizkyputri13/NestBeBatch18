@@ -6,7 +6,7 @@ import { JobHistory } from './JobHistory';
 @Entity('jobs', { schema: 'public' })
 export class Jobs {
   @Column('character varying', { primary: true, name: 'job_id', length: 10 })
-  jobId: string;
+  jobId: number;
 
   @Column('character varying', {
     name: 'job_title',
